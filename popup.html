@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemindMe!</title>
+    <link rel="stylesheet" href="popup.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cantarell&family=Josefin+Sans&family=Mukta:wght@300&family=Padauk&display=swap');
+    </style>
+</head>
+<body>
+    <h1 id="title">RemindMe!</h1>
+    <h3>Schedule a reminder for an event</h3>
+    <div class="input-container">
+        <label class="input-label">Event Description</label>
+        <input class="input-box" id="text-input" type="text">
+    </div>
+    <div class="input-container">
+        <label class="input-label">Notify before event (mins)</label>
+        <input class="input-box" id="timer-duration-input" type="number">
+    </div>
+    <div class="input-container">
+        <label class="input-label">Event date and time</label>
+        <input class="input-box" id="time-input" type="datetime-local">
+    </div>
+    <button id="save-btn">Save</button>
+    <p id="reminder"></p>
+</body>
+<script src="popup.js"></script>
+</html>

@@ -1,0 +1,54 @@
+body {
+    width: 400px;
+    padding: 1em;
+    font-family: 'Cantarell', sans-serif;
+    background-color: rgb(224, 240, 255);
+    overflow: scroll;
+}
+
+
+#title {
+    color: salmon;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+
+.input-label {
+    margin-bottom: 0.2em;
+    font-weight: bold;
+}
+
+.input-box {
+    padding: 0.5em;
+    font-family: 'Cantarell', sans-serif;
+    border-width: 0px;
+    border-radius: 5px;
+}
+
+#save-btn {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    border-width: 0px;
+    padding: 0.7em;
+    background-color: salmon;
+    color: white;
+    font-weight: bold;
+}
+
+#reminder-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#reminder {
+    padding: 1em;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight:bold;
+    background-color: rgb(254, 246, 235);
+}
