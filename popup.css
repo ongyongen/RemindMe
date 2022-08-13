@@ -40,6 +40,18 @@ body {
     font-weight: bold;
 }
 
+#save-btn:active {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    border-width: 0px;
+    padding: 0.7em;
+    background-color: rgb(215, 89, 75);
+    color: white;
+    font-weight: bold;
+}
+
+
 #reminder-title {
     font-size: 1.5em;
     font-weight: bold;

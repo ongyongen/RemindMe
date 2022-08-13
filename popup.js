@@ -17,38 +17,44 @@ const formatDisplaySetTime = (setHour, displayHour, displayMin) => {
 }
 
 const formatDisplayMessage = (reminder, displaySetTime, duration) => {
+    if (reminder == null || displaySetTime == null || duration == null) {
+        return "Create a new event"
+    }
     return `${reminder} at ${displaySetTime} (Notify ${duration} mins before)`
 }
 
 saveBtn.addEventListener("click", () => { 
-    const reminder = textInput.value
-    const duration = timerDurationInput.value
-    const setTime =  timeInput.value
-    const setTimeHourMins = timeInput.value.split("T")[1]
+        const reminder = textInput.value
+        const duration = timerDurationInput.value
+        const setTime =  timeInput.value
 
-    const setHour = setTimeHourMins.split(":")[0]
-    const displayMin = setTimeHourMins.split(":")[1]
+        const setTimeHourMins = setTime == null ? null : timeInput.value.split("T")[1] 
+        const setHour = setTimeHourMins == null ? "" : setTimeHourMins.split(":")[0]
+        const displayMin = setTimeHourMins == null ? "" : setTimeHourMins.split(":")[1]
+    
+        const displayHour = formatDisplayHour(setHour)
+        const displaySetTime = formatDisplaySetTime(setHour, displayHour, displayMin)
 
-    const displayHour = formatDisplayHour(setHour)
-    const displaySetTime = formatDisplaySetTime(setHour, displayHour, displayMin)
-    reminderElement.textContent = formatDisplayMessage(reminder, displaySetTime, duration)
-
-    chrome.storage.sync.set(
-        {reminder, duration, setTime}, 
-        () => {
-            console.log(`${reminder}, ${duration}, ${setTime}`)
+        reminderElement.textContent = formatDisplayMessage(reminder, displaySetTime, duration)
+    
+        chrome.storage.sync.set(
+            {reminder, duration, setTime}, 
+            () => {
+                console.log(`${reminder}, ${duration}, ${setTime}`)
         })
 })
 
 chrome.storage.sync.get(["reminder","duration", "setTime"], (res) => {
     const reminder = res.reminder
     const duration = res.duration
-    const setTimeHourMins = res.setTime.split("T")[1]
+    const setTime = res.setTime
 
-    const setHour = setTimeHourMins.split(":")[0]
-    const displayMin = setTimeHourMins.split(":")[1]
+    const setTimeHourMins =  setTime == null ? null : res.setTime.split("T")[1]
+    const setHour =  setTimeHourMins == null? "" : setTimeHourMins.split(":")[0]
+    const displayMin =  setTimeHourMins == null ? "": setTimeHourMins.split(":")[1]
     const displayHour = formatDisplayHour(setHour)
     const displaySetTime = formatDisplaySetTime(setHour, displayHour, displayMin)
+
     reminderElement.textContent = formatDisplayMessage(reminder, displaySetTime, duration)
 })
 

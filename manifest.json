@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "RemindMe!",
+    "name": "RemindMe",
     "version": "1.0.0",
-    "description": "Hello World",
+    "description": "Track your upcoming events",
     "icons": {
         "16": "icon.png",
         "48": "icon.png",
